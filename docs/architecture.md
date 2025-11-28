@@ -24,43 +24,43 @@ At a high level, the Gateway implements the **S2F lifecycle** for enterprise dem
 2. **Verify** – attach proofs from CompactDApp profiles, apply policy and compliance rules, route for approvals.
 3. **Fulfill** – finalize SoW, start assignments, track milestones and invoices, feed back delivery signals.
 
-```mermaid
 flowchart LR
-  EUser((Enterprise\nStakeholder))
-  GWUI[Gateway UI\n(web app)]
-  GWAPI[Gateway Services API\nS2F orchestrator]
-  Policy[Policy Engine\nrates, geo rules]
-  SAP[SAP Systems\nAriba, Fieldglass, S4]
-  Core[Legeon Core Platform\nmatching, contracts]
-  Compact[Genesis CompactDApp\nProfile proofs]
-  Midnight[Midnight Privacy Core\nVC and escrow]
+  EUser((Enterprise Stakeholder))
+  GWUI[Gateway UI (web app)]
+  GWAPI[Gateway Services API (S2F orchestrator)]
+  Policy[Policy Engine (rates, geo rules)]
+  SAP[SAP Systems (Ariba, Fieldglass, S/4HANA)]
+  Core[Legeon Core Platform (matching, contracts)]
+  Compact[Genesis CompactDApp (Profile proofs)]
+  Midnight[Midnight Privacy Core (VC & escrow)]
 
-  EUser -->|create demand\nor view status| GWUI
+  EUser -->|create demand or view status| GWUI
   GWUI -->|REST or GraphQL calls| GWAPI
 
   %% Source
   GWAPI -->|normalize requisition| Policy
   GWAPI -->|request shortlist| Core
-  Core -->|ranked consultants\nplus metadata| GWAPI
+  Core -->|ranked consultants + metadata| GWAPI
 
   GWAPI -->|enriched shortlist| GWUI
-  EUser -->|review shortlist\nrequest more info| GWUI
+  EUser -->|review shortlist or request info| GWUI
 
   %% Verify
   GWAPI -->|request profile proofs| Compact
-  Compact -->|selective disclosure\nverifiable claims| GWAPI
+  Compact -->|selective disclosure claims| GWAPI
   GWAPI -->|check rules| Policy
-  Policy -->|compliance decision\nand flags| GWAPI
+  Policy -->|compliance decision + flags| GWAPI
 
   %% Fulfill
   EUser -->|approve SoW and award| GWUI
   GWUI --> GWAPI
-  GWAPI -->|create or update\nengagement| Core
-  GWAPI -->|sync award and SoW\nwhere configured| SAP
+  GWAPI -->|create or update engagement| Core
+  GWAPI -->|sync award + SoW| SAP
 
   %% Runtime delivery
-  SAP -->|timesheet and status\nwhere available| GWAPI
+  SAP -->|timesheet and status| GWAPI
   GWAPI -->|milestone updates| Core
-  GWAPI -->|proofs for payment\nand audit trail| Midnight
+  GWAPI -->|proofs for payment + audit trail| Midnight
+
 
 
