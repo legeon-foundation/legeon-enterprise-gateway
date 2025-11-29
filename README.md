@@ -160,7 +160,7 @@ TBD (based on Legeon Foundation licensing guidelines)
 For inquiries about the Enterprise Gateway or collaboration:
 
 **Legeon Foundation**  
-https://legeon.io
+https://legeon.co
 
 
 
