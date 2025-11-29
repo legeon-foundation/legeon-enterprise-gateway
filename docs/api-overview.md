@@ -32,6 +32,9 @@ The Gateway API generates a SoW draft from the engagement details (scope, milest
 The enterprise reviews and approves the SoW through the Gateway UI.
 Once approved, the SoW is confirmed in Legeon Core and optionally synchronized back to SAP.
 Outcome: A formalized, approved SoW ready for milestone tracking and delivery.
+> Requisitions can be created directly in the **Gateway UI web portal** or, where configured, synchronized from existing SAP systems.  
+> The sequence below shows the **UI-driven path**.
+
 
 ```mermaid
 sequenceDiagram
