@@ -1,3 +1,10 @@
-# Placeholder
+# Gateway Services
 
-This file exists only to define the folder structure. Safe to replace when code is added.
+This module will implement the S2F (Source → Verify → Fulfill) workflows
+for the Enterprise Gateway:
+
+- Create and manage requisitions
+- Request shortlists from Legeon Core
+- Verify candidates via CompactDApp proofs and Policy Engine
+- Create engagements and SoWs, with optional SAP sync
+
